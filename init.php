@@ -16,7 +16,7 @@ class ru_direct_buy{
 
 	public function __construct(){
 
-		## 즉시구매 체크를 위한 객체생성
+		## 즉시구매 여부를 체크하기 위한 히든객체 생성 
 		add_action( 'woocommerce_before_add_to_cart_button', array($this, 'action_woocommerce_after_add_to_cart_form') );
 
 		# 푸터에 이벤트 삽입
@@ -25,10 +25,10 @@ class ru_direct_buy{
 		# 장바구니 버튼 직전에 인라인 스타일링
 		add_action( 'woocommerce_before_add_to_cart_button', array($this, 'ru_direct_checkout_button_before') );
 
-		# 바로구매 후킹
+		# 바로구매 버튼삽입
 		add_action( 'woocommerce_after_add_to_cart_button', array($this, 'ru_direct_checkout_button_after') );
 
-		# 리다이렉트 후킹
+		# 리다이렉트 사용자정의 
 		add_filter( 'woocommerce_add_to_cart_redirect', array($this, 'ru_redirect_checkout_add_cart') );
 		
 	}
